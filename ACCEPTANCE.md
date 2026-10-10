@@ -26,7 +26,7 @@ A full dual-agent Impeccable critique command was not invoked. Visual judgments 
 
 ## Remaining gameplay verification
 
-Canonical single-element changes, the new item-equipment preset, and optional four-element mixing need further in-game testing. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
+The owner tested the initial-save Legal Max candidate in-game without reported issues and approved publication. A separate in-game check of the initial-save Overlimit candidate and optional four-element mixing is not recorded. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
 
 ## Privacy
 
@@ -44,6 +44,6 @@ All three repeat-application cases, six configuration transitions, and three nat
 
 The self-hosted production build at the GitHub Pages base path was exercised in a real browser using the file chooser, validation, Legal Max generation/download, original-backup download, preset switching, Overlimit generation/download, and report download. Both patched downloads and the original-backup download were compared byte for byte with their native references. Changing modes removed the stale download controls. The downloaded report's source/output hashes and configuration matched the actual files.
 
-This controlled browser pass used the production build served locally at /game-save-dw3cer/. The live GitHub Pages site was deployed successfully and its engine initialized in Chrome; live-site file selection requires the automation extension's local-file permission, which is not a requirement for ordinary manual use of the website. Gameplay confirmation of the fresh-save candidates remains pending.
+This controlled browser pass used the production build served locally at /game-save-dw3cer/. The live GitHub Pages site was deployed successfully and its engine initialized in Chrome; live-site file selection requires the automation extension's local-file permission, which is not a requirement for ordinary manual use of the website. The initial-save Legal Max candidate has since passed the owner's in-game check.
 
-The same initial-save flow subsequently passed on the actual live GitHub Pages URL in the built-in browser: file validation, both preset downloads, original-backup download, stale-output invalidation, and report download. Live Legal Max, Overlimit, and original-backup payloads matched their native references byte for byte, and the live report matched the source/output hashes and selected configuration. Gameplay confirmation remains pending.
+The same initial-save flow subsequently passed on the actual live GitHub Pages URL in the built-in browser: file validation, both preset downloads, original-backup download, stale-output invalidation, and report download. Live Legal Max, Overlimit, and original-backup payloads matched their native references byte for byte, and the live report matched the source/output hashes and selected configuration. The owner subsequently confirmed the initial-save Legal Max candidate in-game without reported issues and approved publication.

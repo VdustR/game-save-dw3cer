@@ -1,0 +1,28 @@
+{
+  "tag": "steam-build-25630985",
+  "title": "DW3CER: Original, Perfect, and Overlimit Saves",
+  "assets_commit": "deeb242501009a25744c502bc4231b2c1ff05d4d",
+  "assets": [
+    {
+      "name": "DW3CER_0_Percent_Original.zip",
+      "sha256": "f59f0701115974a3df6538b3dc498f9f0bdf12179f38960916da0a2e00d17cfb",
+      "size": 529889,
+      "blob_sha": "37f759d9413c6ea18d22115d7b85a4be660076b4",
+      "save_sha256": "a25344a60e83da91858a02f614da14c7dbe40ae03ca064ce84f69fbe3ce0c161"
+    },
+    {
+      "name": "DW3CER_100_Percent_Perfect.zip",
+      "sha256": "654a0672d3836d6a64e88e3e4670624e12d9241282e71f7060651317dd3fa641",
+      "size": 523948,
+      "blob_sha": "953dbee3b1db98ff664c0b2a02f96d2cf2722613",
+      "save_sha256": "dbf981cefc965b196352707a861e57cf2f30b72558d6769596312df3e3644f02"
+    },
+    {
+      "name": "DW3CER_101_Percent_Overlimit.zip",
+      "sha256": "1253526532d123d0deb2702aff81a85dafae6d1130a989a6069072aeabc77a6d",
+      "size": 610496,
+      "blob_sha": "e87a812568e1b5d1cf03fb008cfeb718e37bee21",
+      "save_sha256": "825cb5b4ec35ad9a7c04e4cc4e4fca6d5991086207b282bb5b14008d0b531c6a"
+    }
+  ]
+}

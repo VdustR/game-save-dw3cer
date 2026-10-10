@@ -1,0 +1,47 @@
+name: Publish save release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Approved save bundle
+        required: true
+        type: choice
+        default: steam-build-25630985
+        options: [steam-build-25630985]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-save-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Require successful CI for this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          result=$(gh api "repos/$GH_REPO/actions/runs?head_sha=$GITHUB_SHA&event=push" --jq '.workflow_runs[] | select(.name == "CI and Pages") | .conclusion' | head -n 1)
+          if [ "$result" != "success" ]; then
+            echo "CI and Pages must finish successfully for this commit before publishing."
+            exit 1
+          fi
+      - name: Verify bundles, upload a draft, and publish verified assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: python3 scripts/publish-release.py

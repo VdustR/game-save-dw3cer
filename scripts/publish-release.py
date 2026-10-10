@@ -81,6 +81,8 @@ def main():
                '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
             release = next(row for row in api(f'repos/{repo}/releases?per_page=100')
                            if row['tag_name'] == args.tag)
+        gh('release', 'edit', args.tag, '--repo', repo, '--target', os.environ['GITHUB_SHA'],
+           '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
         gh('release', 'upload', args.tag, *paths, '--repo', repo, '--clobber')
         uploaded = api(f"repos/{repo}/releases/{release['id']}")
         if {item['name'] for item in uploaded['assets']} != NAMES or len(uploaded['assets']) != 3:

@@ -8,7 +8,7 @@
 
 Both patched saves equip all 42 officers with their own fifth weapons and five items. All four bodyguard teams receive third-tier weapons and Healing Scroll. Four-element mixing is off.
 
-The percentages are package labels, not completion meters. The original retains content naturally granted by the installed game. Permanent Musou values are preserved; Steam achievements and challenge scores are unchanged.
+The percentages are package labels, not completion meters. The original retains content naturally granted by the installed game. Permanent Musou values are preserved; Steam achievement data and challenge scores are not edited.
 
 ## Install
 

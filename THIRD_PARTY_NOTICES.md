@@ -5,4 +5,6 @@
 - Pyodide 314.0.7: Mozilla Public License 2.0. The runtime is self-hosted, unmodified, with its notice in `public/licenses/Pyodide-LICENSE`. Python's bundled standard library retains its original Python Software Foundation notices.
 - Fraunces and Source Sans 3: SIL Open Font License 1.1. Notices are in `public/licenses/Fraunces-LICENSE` and `public/licenses/Source-Sans-3-LICENSE`.
 
-Development dependencies retain their package licenses. No private game saves or proprietary game assets are included in the website.
+- Game favicon: the DW3CER Steam shortcut icon, used to identify the supported game. It remains the property of its respective rights holders and is not licensed under this project's MIT license. No affiliation or endorsement is implied.
+
+Development dependencies retain their package licenses. No private game saves are included in the website. The favicon is the only bundled proprietary game artwork.

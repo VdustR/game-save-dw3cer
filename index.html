@@ -8,6 +8,7 @@
       content="Validate and patch your DW3 Remastered save locally, with Legal Max and Experimental Overlimit presets."
     />
     <title>DW3CER Save Workshop</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
   </head>
   <body>
     <a class="skip" href="#workbench">Skip to the patcher</a>
@@ -131,6 +132,40 @@
           <button id="download" class="button primary">Download patched save</button
           ><button id="backup" class="button secondary">Download original backup</button
           ><button id="report" class="text-button">Download report</button>
+        </div>
+      </section>
+      <section class="verification" aria-labelledby="save-guide-heading">
+        <h2 id="save-guide-heading">Keep your progress safe.</h2>
+        <div>
+          <p><strong>Windows Steam save location.</strong> Open this folder in File Explorer:</p>
+          <p><code>%LOCALAPPDATA%\KoeiTecmo\DW3CE_RE\Saved\SaveGames</code></p>
+          <p>
+            Choose <code>GameStatusData.sav</code>. The browser cannot open this folder for you.
+          </p>
+          <p>
+            <strong>Back up first.</strong> Close the game and copy the entire SaveGames folder to a
+            separate location before replacing any files. Keep that backup and download the original
+            backup offered by this tool.
+          </p>
+          <p>
+            <strong>Install a patched save.</strong> With the game closed, rename the downloaded
+            patched file to <code>GameStatusData.sav</code> and replace only that file in the save
+            folder. Keep your other save files. Start the game and check your progress and equipment
+            before saving again.
+          </p>
+          <p>
+            <strong>Steam Cloud.</strong> Cloud sync can restore or overwrite a local save. Check
+            sync status and temporarily disable this game's Cloud sync when testing a replacement.
+            Resolve any conflict deliberately, then restore your preferred sync setting.
+          </p>
+          <p>
+            <strong>Disclaimer.</strong> This is an unofficial community tool, provided as is
+            without warranties. Save modifications may cause data loss or unexpected game behavior.
+            Validation and tested outputs do not guarantee compatibility with every save or game
+            update. You are responsible for backups and use. This project is not affiliated with or
+            endorsed by KOEI TECMO or Valve; game names and the favicon belong to their respective
+            owners.
+          </p>
         </div>
       </section>
       <section id="verification" class="verification">

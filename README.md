@@ -4,6 +4,28 @@ A browser-local save patcher for **Dynasty Warriors 3: Complete Edition Remaster
 
 [Open the Patcher](https://vdustr.github.io/game-save-dw3cer/)
 
+## Save location, backups, and installation
+
+For the Windows Steam edition, open this folder in File Explorer:
+
+```text
+%LOCALAPPDATA%\KoeiTecmo\DW3CE_RE\Saved\SaveGames
+```
+
+The file to patch is `GameStatusData.sav`. The browser cannot open the save folder automatically.
+
+1. Close the game. Copy the entire `SaveGames` folder to a separate location and keep that backup.
+2. Choose a copy of `GameStatusData.sav` in the Patcher. Select Legal Max or Experimental Overlimit, then patch and verify it.
+3. Download the patched save, original backup, and report. The tool never overwrites your local source file.
+4. With the game closed, rename the patched download to `GameStatusData.sav` and replace only that file in the live save folder. Preserve the other save files.
+5. Start the game and check your progress and equipment before saving again. If anything looks wrong, close the game and restore your backup.
+
+Steam Cloud can restore or overwrite local files. Check sync status and temporarily disable this game's Cloud sync when testing a replacement. Resolve any sync conflict deliberately, then restore your preferred sync setting. Never rely on Cloud sync as your only backup.
+
+## Disclaimer
+
+This is an unofficial community tool, provided as is without warranties. Save modifications may cause data loss or unexpected game behavior. Validation and tested outputs do not guarantee compatibility with every save or game update. You are responsible for backups and use. This project is not affiliated with or endorsed by KOEI TECMO or Valve. Game names and the game favicon belong to their respective owners; the MIT license applies to this project's code, not the game icon or proprietary game assets.
+
 ## What both presets include
 
 - All supported unlocks: 42 officers, 108 known selectable stages, three side stories, 39 supported Musou clears, unique weapons, items, known collections, costumes, and bodyguard appearance/color choices.

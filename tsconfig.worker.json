@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.strict.json",
+  "compilerOptions": { "lib": ["ES2022", "WebWorker"], "types": [] },
+  "include": ["src/engine.worker.ts", "src/protocol.ts"]
+}

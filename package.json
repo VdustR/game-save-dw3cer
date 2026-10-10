@@ -1,0 +1,30 @@
+{
+  "name": "dw3-save-workshop",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev --host 127.0.0.1",
+    "build": "node scripts/prepare-runtime.mjs && tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && vp build",
+    "check": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && vp check",
+    "test": "vp test run",
+    "acceptance:browser": "node scripts/browser-parity.mjs",
+    "preview": "vp preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "5.3.0",
+    "@fontsource/source-sans-3": "5.3.0",
+    "crypto-js": "4.2.0",
+    "pyodide": "314.0.7"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "4.2.2",
+    "@types/node": "26.6.5",
+    "typescript": "7.0.2",
+    "vite-plus": "1.1.0"
+  },
+  "engines": {
+    "node": "26.11.1"
+  },
+  "packageManager": "pnpm@12.10.1"
+}

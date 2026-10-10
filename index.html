@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Validate and patch your DW3 Remastered save locally, with Legal Max and Experimental Overlimit presets."
+    />
+    <title>DW3 Save Workshop</title>
+  </head>
+  <body>
+    <a class="skip" href="#workbench">Skip to the patcher</a>
+    <main>
+      <header>
+        <a href="#" class="wordmark" aria-label="DW3 Save Workshop home"
+          ><svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M5 25 25 5m-14 0 16 16M4 20l8 8M18 4l10 10" /></svg
+          >DW3 <span>Save Workshop</span></a
+        ><span class="privacy">Local files. Private processing.</span>
+      </header>
+      <section class="intro">
+        <div>
+          <h1>Prepare your<br /><em>next campaign.</em></h1>
+          <p>
+            Unlock the collection. Equip your officers and bodyguards.<br />Choose a complete,
+            repeatable preset for your Remastered save.
+          </p>
+        </div>
+        <aside>
+          <span class="edition">DYNASTY WARRIORS 3</span>
+          <p>Complete Edition Remastered<br />Windows · Steam</p>
+          <a href="#verification">What is verified?</a>
+        </aside>
+      </section>
+      <section id="workbench" aria-label="Save patcher" class="workbench">
+        <div class="source">
+          <h2>Start with your save</h2>
+          <p>
+            Choose <code>GameStatusData.sav</code>. Your file stays in this browser; the original is
+            never overwritten.
+          </p>
+          <div class="file-area">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M12 6h16l8 8v28H12zm16 0v10h8M18 27h12m-6-6v12" /></svg
+            ><label for="save-file" class="button file-label">Choose save file</label
+            ><input id="save-file" type="file" accept=".sav" disabled />
+            <p id="file-name">A .sav file, up to 16 MB</p>
+          </div>
+          <div class="state-line">
+            <span id="status-dot" class="status-dot"></span>
+            <p id="status" role="status" aria-live="polite">Loading the local processing engine…</p>
+          </div>
+          <dl id="file-summary" hidden>
+            <div>
+              <dt>File validation</dt>
+              <dd>Passed</dd>
+            </div>
+            <div>
+              <dt>Officers / bodyguard teams</dt>
+              <dd id="team-count"></dd>
+            </div>
+            <div class="hash-row">
+              <dt>Original SHA-256</dt>
+              <dd id="source-hash"></dd>
+            </div>
+          </dl>
+          <button id="cancel" class="text-button" hidden>Cancel processing</button>
+        </div>
+        <div class="configuration">
+          <h2>Choose your preset</h2>
+          <fieldset id="preset-options" disabled>
+            <legend class="sr-only">Patch preset</legend>
+            <label class="preset"
+              ><input type="radio" name="mode" value="legal" checked />
+              <div>
+                <h3>Legal Max</h3>
+                <p>Maximum supported values, legal bonus counts, and balanced bodyguard growth.</p>
+                <span>25-point bodyguard allocation</span>
+              </div></label
+            >
+            <label class="preset"
+              ><input type="radio" name="mode" value="overlimit" />
+              <div>
+                <h3>Experimental Overlimit</h3>
+                <p>Foot-combat bonuses and +255 bodyguard weapon values, with expanded growth.</p>
+                <span>36-point bodyguard allocation</span>
+              </div></label
+            >
+            <label class="mix-option"
+              ><input type="checkbox" id="mixed" disabled /><span
+                >Mix all four weapon elements<small
+                  >Overlimit only. This option needs additional gameplay testing.</small
+                ></span
+              ></label
+            >
+          </fieldset>
+          <details class="included" open>
+            <summary>Included in both presets</summary>
+            <ul>
+              <li>All supported content and collections unlocked</li>
+              <li>All 42 officers equipped with their own fifth weapons</li>
+              <li>Third-tier weapons for every bodyguard weapon family</li>
+              <li>Five officer items and one self-heal item per bodyguard team</li>
+              <li>Existing rare weapon bonuses and permanent Musou preserved</li>
+            </ul>
+          </details>
+          <button id="generate" class="button primary" disabled>
+            Patch and verify save<svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </button>
+          <p class="output-note">
+            Creates a new file, an original backup, and a verification report.
+          </p>
+        </div>
+      </section>
+      <section id="result" class="result" hidden aria-labelledby="result-heading">
+        <div class="result-header">
+          <h2 id="result-heading">Your save is ready.</h2>
+          <span>Output validation passed</span>
+        </div>
+        <p id="result-description"></p>
+        <dl>
+          <div>
+            <dt>Output SHA-256</dt>
+            <dd id="output-hash"></dd>
+          </div>
+        </dl>
+        <div class="downloads">
+          <button id="download" class="button primary">Download patched save</button
+          ><button id="backup" class="button secondary">Download original backup</button
+          ><button id="report" class="text-button">Download report</button>
+        </div>
+      </section>
+      <section id="verification" class="verification">
+        <h2>Clear about what we know.</h2>
+        <div>
+          <p>
+            <strong>Tested game build.</strong> Windows Steam build 25630985 (App 3841510), Windows
+            executable version 1.0.2.0. Acceptance date: October 10, 2026. Save header: Unreal
+            Engine 5.6.1. Other game builds and editions have not been verified.
+          </p>
+          <p>
+            <strong>Verified transformations.</strong> Repeated patches and preset switching produce
+            consistent results. Browser output is compared with the native reference engine.
+          </p>
+          <p>
+            <strong>Gameplay boundaries.</strong> The previous Overlimit save was tested in-game,
+            including bodyguard resave preservation. Newly standardized elements, item equipment,
+            and optional four-element mixing still need gameplay checks. Displayed bonuses may
+            exceed effective combat caps.
+          </p>
+          <p>
+            <strong>File validation.</strong> The patcher checks structure, version, and references.
+            This save format has no known authenticity signature; validation cannot prove a file’s
+            origin or detect every plausible scalar error.
+          </p>
+        </div>
+      </section>
+      <footer>
+        <p>DW3 Save Workshop · MIT licensed</p>
+        <div>
+          <h2>Credits</h2>
+          <a
+            href="https://bbs.3dmgame.com/thread-6706994-1-1.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            lang="zh-Hans"
+            >真三国无双2复刻版强力初始存档最终版</a
+          ><span>hanjigang · Original modified-save reference</span
+          ><a
+            href="https://github.com/MMexicann/Universal-Koei-Tecmo-Save-Editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Universal Koei Tecmo Save Editor</a
+          ><span>Mexican and contributors · Native parser and rules</span>
+        </div>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

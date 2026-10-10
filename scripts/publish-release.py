@@ -60,14 +60,11 @@ def main():
     repo = os.environ['GH_REPO']
     if repo != 'VdustR/game-save-dw3cer':
         raise ValueError('Unexpected publishing repository.')
-    existing = subprocess.run(['gh', 'api', f'repos/{repo}/releases/tags/{args.tag}'], capture_output=True)
-    release = None
-    if existing.returncode == 0:
-        release = json.loads(existing.stdout)
-        if not release['draft']:
-            raise ValueError('This release is already public; refusing to replace it.')
-    elif b'404' not in existing.stderr:
-        raise RuntimeError(existing.stderr.decode('utf8'))
+    # Drafts do not have a published tag endpoint yet. Resolve their release ID.
+    release = next((row for row in api(f'repos/{repo}/releases?per_page=100')
+                    if row['tag_name'] == args.tag), None)
+    if release is not None and not release['draft']:
+        raise ValueError('This release is already public; refusing to replace it.')
     with tempfile.TemporaryDirectory(prefix='dw3cer-release-') as directory:
         folder = Path(directory)
         paths = []
@@ -82,8 +79,10 @@ def main():
         if release is None:
             gh('release', 'create', args.tag, '--repo', repo, '--target', os.environ['GITHUB_SHA'],
                '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
+            release = next(row for row in api(f'repos/{repo}/releases?per_page=100')
+                           if row['tag_name'] == args.tag)
         gh('release', 'upload', args.tag, *paths, '--repo', repo, '--clobber')
-        uploaded = api(f'repos/{repo}/releases/tags/{args.tag}')
+        uploaded = api(f"repos/{repo}/releases/{release['id']}")
         if {item['name'] for item in uploaded['assets']} != NAMES or len(uploaded['assets']) != 3:
             raise ValueError('The draft does not contain exactly the three approved assets.')
         for spec in manifest['assets']:

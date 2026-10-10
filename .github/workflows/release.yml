@@ -9,6 +9,11 @@ on:
         type: choice
         default: steam-build-25630985
         options: [steam-build-25630985]
+      update:
+        description: Update an existing release's notes and guide files
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -44,4 +49,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_UPDATE: ${{ inputs.update }}
         run: python3 scripts/publish-release.py

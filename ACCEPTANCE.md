@@ -26,7 +26,7 @@ A full dual-agent Impeccable critique command was not invoked. Visual judgments 
 
 ## Remaining gameplay verification
 
-The owner tested the initial-save Legal Max candidate in-game without reported issues and approved publication. A separate in-game check of the initial-save Overlimit candidate and optional four-element mixing is not recorded. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
+The owner tested the initial-save Legal Max candidate in-game without reported issues and approved publication. The project owner also tested the initial-save Overlimit candidate on October 11, 2026, without reported issues. Optional four-element mixing has not been separately tested in-game. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
 
 ## Privacy
 
@@ -47,3 +47,7 @@ The self-hosted production build at the GitHub Pages base path was exercised in 
 This controlled browser pass used the production build served locally at /game-save-dw3cer/. The live GitHub Pages site was deployed successfully and its engine initialized in Chrome; live-site file selection requires the automation extension's local-file permission, which is not a requirement for ordinary manual use of the website. The initial-save Legal Max candidate has since passed the owner's in-game check.
 
 The same initial-save flow subsequently passed on the actual live GitHub Pages URL in the built-in browser: file validation, both preset downloads, original-backup download, stale-output invalidation, and report download. Live Legal Max, Overlimit, and original-backup payloads matched their native references byte for byte, and the live report matched the source/output hashes and selected configuration. The owner subsequently confirmed the initial-save Legal Max candidate in-game without reported issues and approved publication.
+
+## Overlimit gameplay confirmation
+
+On October 11, 2026, the project owner tested the fresh 101% Overlimit candidate in-game and reported no issues. Both published preset files now have owner gameplay confirmation. This feedback does not establish uncapped combat effects or qualify optional four-element mixing. The save payloads are unchanged; release guide files were updated to record the result.

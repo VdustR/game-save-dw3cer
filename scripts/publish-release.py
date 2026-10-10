@@ -46,6 +46,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--tag', default=os.environ.get('RELEASE_TAG'))
     parser.add_argument('--verify-directory', type=Path)
+    parser.add_argument('--update', action='store_true', default=os.environ.get('RELEASE_UPDATE') == 'true')
     args = parser.parse_args()
     if not args.tag or not re.fullmatch(r'steam-build-\d+', args.tag):
         raise ValueError('Use an approved Steam-build tag.')
@@ -63,8 +64,11 @@ def main():
     # Drafts do not have a published tag endpoint yet. Resolve their release ID.
     release = next((row for row in api(f'repos/{repo}/releases?per_page=100')
                     if row['tag_name'] == args.tag), None)
-    if release is not None and not release['draft']:
+    published = release is not None and not release['draft']
+    if published and not args.update:
         raise ValueError('This release is already public; refusing to replace it.')
+    if args.update and not published:
+        raise ValueError('Update mode requires an existing public release.')
     with tempfile.TemporaryDirectory(prefix='dw3cer-release-') as directory:
         folder = Path(directory)
         paths = []
@@ -81,8 +85,12 @@ def main():
                '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
             release = next(row for row in api(f'repos/{repo}/releases?per_page=100')
                            if row['tag_name'] == args.tag)
-        gh('release', 'edit', args.tag, '--repo', repo, '--target', os.environ['GITHUB_SHA'],
-           '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
+        if published:
+            gh('release', 'edit', args.tag, '--repo', repo, '--title', manifest['title'],
+               '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')))
+        else:
+            gh('release', 'edit', args.tag, '--repo', repo, '--target', os.environ['GITHUB_SHA'],
+               '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
         gh('release', 'upload', args.tag, *paths, '--repo', repo, '--clobber')
         uploaded = api(f"repos/{repo}/releases/{release['id']}")
         if {item['name'] for item in uploaded['assets']} != NAMES or len(uploaded['assets']) != 3:
@@ -95,7 +103,8 @@ def main():
             path = folder / ('downloaded-' + spec['name'])
             path.write_bytes(downloaded)
             verify_bundle(path, spec)
-        gh('release', 'edit', args.tag, '--repo', repo, '--draft=false', '--latest')
+        if not published:
+            gh('release', 'edit', args.tag, '--repo', repo, '--draft=false', '--latest')
         print(f'https://github.com/{repo}/releases/tag/{args.tag}')
 
 

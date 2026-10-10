@@ -27,7 +27,7 @@ Keep this game's Steam Cloud sync off while testing. Check your progress and equ
 - **Game:** Windows Steam build **25630985**, executable **1.0.2.0**.
 - **100% Perfect:** tested in-game by the project owner; no issues reported.
 - **Both patched files:** repeat application, mode switching, and live-site downloads match the native reference byte for byte.
-- **101% Overlimit:** uses the previously tested numeric profile. A separate in-game check of this fresh-save file is not recorded. Displayed bonuses may exceed effective combat caps.
+- **101% Overlimit:** uses the previously tested numeric profile. Tested in-game by the project owner on October 11, 2026; no issues reported. Displayed bonuses may exceed effective combat caps.
 
 Each ZIP includes a short guide and `SHA256SUMS.txt`.
 

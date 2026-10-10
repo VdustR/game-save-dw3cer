@@ -64,7 +64,7 @@ Game load/display/resave evidence applies to the prior Overlimit candidate on th
 
 Acceptance focuses on this project's composition, mode switching, idempotence, browser migration, and UI lifecycle. Unmodified upstream features are recorded as dependencies and are not independently requalified.
 
-The native acceptance suite covers the three configurations (Legal, Overlimit, Overlimit with mixing), three repeat-patch checks, and six cross-configuration transitions. The exact WASM/JavaScript AES stack matches the native output. Actual browser file selection, patch generation, and downloads are checked against the same hashes. Private fixtures and fixture hashes are excluded from the published source and assets.
+The native acceptance suite covers the three configurations (Legal, Overlimit, Overlimit with mixing), three repeat-patch checks, and six cross-configuration transitions. The exact WASM/JavaScript AES stack matches the native output. Actual browser file selection, patch generation, and downloads are checked against the same hashes. The initial-save Legal Max and Overlimit downloads, original-backup download, mode-switch invalidation, and report download were also checked in a real browser against the production build served locally at the GitHub Pages base path. Private fixtures and fixture hashes are excluded from the published source and assets.
 
 The previous Overlimit candidate was tested in-game by the user, including bodyguard resave preservation. Newly standardized elements and optional four-element mixing remain experimental pending gameplay checks. A displayed +255 value does not prove an uncapped combat effect.
 

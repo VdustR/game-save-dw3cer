@@ -1,6 +1,6 @@
 # Product
 
-DW3 Save Workshop is an operating tool for an owner of a Windows Steam DW3 Remastered save. The primary task is to choose a local file, validate it, review an explicit preset, and download a modified copy with a report and original backup.
+DW3CER Save Workshop is an operating tool for an owner of a Windows Steam DW3 Remastered save. The primary task is to choose a local file, validate it, review an explicit preset, and download a modified copy with a report and original backup.
 
 Users need predictable Legal Max/Overlimit switching, repeatable patches, correct equipment, and confidence that their source file stays intact. All processing is browser-local. The first deployment is private. No private save fixtures, game assets, telemetry, or fabricated gameplay claims may ship.
 

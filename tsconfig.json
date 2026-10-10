@@ -5,5 +5,5 @@
     "types": ["vite-plus/client", "node"]
   },
   "include": ["src/**/*.ts", "vite.config.ts"],
-  "exclude": ["src/engine.worker.ts"]
+  "exclude": ["src/engine.worker.ts", "src/worker-env.d.ts"]
 }

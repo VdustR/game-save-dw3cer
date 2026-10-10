@@ -39,25 +39,26 @@ const dwAES = (hex: string, key: string, direction: string): string => {
 };
 Object.assign(globalThis, { dwAES });
 async function initialize(): Promise<void> {
-  const runtime = new URL("/runtime/", self.location.origin).href;
+  const base = new URL(import.meta.env.BASE_URL, self.location.origin);
+  const runtime = new URL("runtime/", base).href;
   const loaded = record(await import(/* @vite-ignore */ runtime + "pyodide.mjs"));
   const loader = loaded["loadPyodide"];
   if (typeof loader !== "function") throw new Error("The processing runtime could not load.");
   py = pythonRuntime(await (loader as Loader)({ indexURL: runtime }));
   const runtimePython = py;
   runtimePython.FS.mkdir("/engine");
-  const manifest: unknown = await (await fetch("/engine-manifest.json")).json();
+  const manifest: unknown = await (await fetch(new URL("engine-manifest.json", base))).json();
   if (!Array.isArray(manifest) || manifest.length > 40) throw new Error("Invalid engine manifest.");
   await Promise.all(
     manifest.map(async (value: unknown) => {
       const name = text(value);
       if (!/^[a-z_]+\.(py|json)$/.test(name)) throw new Error("Invalid engine module name.");
-      const file = await fetch("/engine/" + name);
+      const file = await fetch(new URL("engine/" + name, base));
       if (!file.ok) throw new Error("A processing module could not load.");
       runtimePython.FS.writeFile("/engine/" + name, new Uint8Array(await file.arrayBuffer()));
     }),
   );
-  const codec = await fetch("/browser_codec.py");
+  const codec = await fetch(new URL("browser_codec.py", base));
   if (!codec.ok) throw new Error("The browser codec could not load.");
   py.FS.writeFile("/engine/save_codec.py", await codec.text());
   py.runPython(

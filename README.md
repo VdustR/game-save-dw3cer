@@ -1,6 +1,8 @@
-# DW3 Save Workshop
+# DW3CER Save Workshop
 
 A browser-local save patcher for **Dynasty Warriors 3: Complete Edition Remastered** on Windows Steam. Choose a save, select **Legal Max** or **Experimental Overlimit**, and download a verified output, the original backup, and a report. Save contents stay in browser memory.
+
+[Open the Patcher](https://vdustr.github.io/game-save-dw3cer/)
 
 ## What both presets include
 
@@ -73,6 +75,12 @@ mise exec -- pnpm run dev
 ```
 
 For private acceptance tests, set `DW3_PRIVATE_FIXTURE` to an absolute save path outside the repository, run `python tests_acceptance.py`, and run `pnpm run acceptance:browser`. The latter exercises the same WASM/JavaScript engine under Node; actual browser UI/download evidence is recorded separately. Never commit fixtures.
+
+## CI and GitHub Pages
+
+Pull requests into main run strict type checks, Oxlint, Oxfmt, application boundary tests, a production build, and deployment-path/privacy checks. Every push to main, including a merged pull request, deploys the verified artifact to GitHub Pages only after these checks pass. Manual deployment is also available from the CI and Pages workflow on main. Deployments run in sequence.
+
+CI uses mise with the pinned Node.js and pnpm versions and a frozen dependency lockfile. Actions are pinned to verified release commit hashes. The Pages build sets PATCHER_BASE to /game-save-dw3cer/; local development defaults to /. Python, WebAssembly, and font assets are self-hosted beneath the same base path. CI does not receive private save fixtures or repeat unmodified upstream acceptance work; private native/browser parity remains a local release gate.
 
 ## Design and release gates
 

@@ -1,5 +1,5 @@
 {
-  "name": "dw3-save-workshop",
+  "name": "game-save-dw3cer",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -8,6 +8,7 @@
     "build": "node scripts/prepare-runtime.mjs && tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && vp build",
     "check": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && vp check",
     "test": "vp test run",
+    "check:dist": "node scripts/check-dist.mjs",
     "acceptance:browser": "node scripts/browser-parity.mjs",
     "preview": "vp preview --host 127.0.0.1"
   },

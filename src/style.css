@@ -589,3 +589,7 @@ summary:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+.verification code {
+  overflow-wrap: anywhere;
+}

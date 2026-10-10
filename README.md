@@ -41,7 +41,7 @@ Third-tier bodyguard weapons have five distinct definitions: Elder Sword, Cresce
 
 **Experimental Overlimit** uses the tested foot-combat numeric profile, +255 bodyguard weapon bonuses, and bodyguard growth `[11, 11, 11, 3, 3, 3]`. Without mixing, its element selection matches the canonical single-element rule. The optional four-element setting applies all four element bits to officer weapons, including fifth weapons. Other flags are preserved. Both presets normalize collection snapshots to their declared profile so switching modes does not depend on the previous mode.
 
-Repeating the same preset produces byte-identical output. Switching to a target preset produces the same output as applying that target directly to the reference input. This guarantee covers the tested real private fixture; broader inventory layouts still benefit from additional user fixtures.
+Repeating the same preset produces byte-identical output. Switching to a target preset produces the same output as applying that target directly to the reference input. This guarantee covers the tested real private fixtures; broader inventory layouts still benefit from additional user fixtures.
 
 Permanent health stays at 250. Permanent Musou is preserved. No paid DLC ownership, Steam achievements, invented story routes, or challenge leaderboard results are fabricated.
 
@@ -60,7 +60,7 @@ Permanent health stays at 250. Permanent Musou is preserved. No paid DLC ownersh
 | Serialization versions                  | GVAS 3; UE4 522; UE5 1017                                          |
 | Acceptance date                         | October 10, 2026                                                   |
 
-Game load/display/resave evidence applies to the prior Overlimit candidate on this build. Native and browser transformation tests use a real save with 42 officers and four bodyguard teams. Newly standardized elements, the new item-equipment preset, and optional four-element mixing still need separate gameplay verification. Other Steam builds, demo saves, and console editions have not been verified. The save header does not reliably identify a Steam build, so the report's tested environment is a reference snapshot, not an inferred build for every uploaded file.
+Game load/display/resave evidence applies to the prior Overlimit candidate on this build. Native and browser transformation tests cover the prior modified reference and a new game-generated initial save with 50 officer records (42 playable officers) and four bodyguard teams. The initial save has zero stage and Musou clears and retains content naturally granted by the installed game. Newly standardized elements, the new item-equipment preset, and optional four-element mixing still need separate gameplay verification. Other Steam builds, demo saves, and console editions have not been verified. The save header does not reliably identify a Steam build, so the report's tested environment is a reference snapshot, not an inferred build for every uploaded file.
 
 Acceptance focuses on this project's composition, mode switching, idempotence, browser migration, and UI lifecycle. Unmodified upstream features are recorded as dependencies and are not independently requalified.
 
@@ -96,7 +96,7 @@ mise exec -- pnpm run build
 mise exec -- pnpm run dev
 ```
 
-For private acceptance tests, set `DW3_PRIVATE_FIXTURE` to an absolute save path outside the repository, run `python tests_acceptance.py`, and run `pnpm run acceptance:browser`. The latter exercises the same WASM/JavaScript engine under Node; actual browser UI/download evidence is recorded separately. Never commit fixtures.
+For private acceptance tests, set `DW3_PRIVATE_FIXTURE` to an absolute save path outside the repository, run `python tests_acceptance.py`, and run `pnpm run acceptance:browser`. The latter exercises the same WASM/JavaScript engine under Node; actual browser UI/download evidence is recorded separately. For a game-generated initial fixture, also run `python tests_initial.py` to check native omitted defaults, existing-option preservation, and invalid-reference rejection. Never commit fixtures.
 
 ## CI and GitHub Pages
 

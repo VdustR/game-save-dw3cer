@@ -28,6 +28,7 @@ def validate(raw):
  if set(fifth)!=set(range(42)):raise SaveError('Incomplete five-star mapping.')
  for i,r in enumerate(d.records('PCSaveDataArray')[:42]):
   ref=fields(r)['WeaponDataID']['value'];name='UniqueWeaponDataArray' if ref>=10000 else 'WeaponDataArray';idx=ref-10000 if ref>=10000 else ref
+  if ref==-1 and not d.properties['CanUseCharaArray']['value']['values'][i]:continue
   if not 0<=idx<len(d.records(name)) or fields(d.records(name)[idx])['WeaponID']['value']=='EWeaponID::NUM':raise SaveError(f'Officer {i} has invalid equipment reference.')
  return d
 
@@ -49,11 +50,29 @@ def apply_updates(d,record_updates=(),leaf_updates=()):
  if out.plaintext!=bytes(plain):raise SaveError('Output reparse differs.')
  return out
 
+def initialize_music_defaults(d):
+ """Create only the native omitted Sound struct; retain every other option."""
+ spec=collection.DATA['music'];owner=d.properties.get('OptionData')
+ if owner is None or owner['type']!=spec['struct_types'][0] or owner['flags']!=0 or owner['array_index']!=0 or not isinstance(owner['value'],list):raise SaveError('Unsupported option layout.')
+ if any(p['name']=='Sound' for p in owner['value']):return d
+ # Default-valued structs are omitted by UE serialization in a fresh save.
+ payload=collection._make_tag(d,None,[],spec,[False]*spec['total'])+wc._string('None')
+ def typename(name,children=()):return wc._string(name)+struct.pack('<i',len(children))+b''.join(children)
+ tag=wc._string('Sound')+typename('StructProperty',[typename('OptionSound',[typename('/Script/Refine')])])+struct.pack('<iB',len(payload),0)+payload
+ offset=collection._insert_at(owner,owner['value'],d)
+ size=struct.unpack_from('>I',d.plaintext)[0];plain=bytearray(d.plaintext[:size+4])
+ plain[offset:offset]=tag
+ struct.pack_into('<i',plain,owner['size_offset'],owner['data_size']+len(tag))
+ struct.pack_into('>I',plain,0,len(plain)-4);plain.extend(bytes((-len(plain))%16))
+ result=parse_bytes(save_codec.encrypt(bytes(plain)))
+ collection._array(result,spec)
+ return result
+
 def preset(raw,mode='legal',mixed_elements=False):
  if mode not in ['legal','overlimit']:raise SaveError('Unknown preset.')
  if type(mixed_elements) is not bool:raise SaveError('Element option must be boolean.')
  if mode=='legal' and mixed_elements:raise SaveError('Four-element mixing requires Overlimit mode.')
- original=validate(raw);changes=[]
+ original=initialize_music_defaults(validate(raw));changes=[]
  for i in range(42):
   changes.extend(Change('officer',i,k,v) for k,v in CAPS.items() if k!='MaxMusou')
  changes.extend(Change('unique_weapon',wid,'Owned',True) for wid in UNIQUE_WEAPONS)

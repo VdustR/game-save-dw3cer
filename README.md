@@ -131,4 +131,4 @@ All copy is standard American English except the original Chinese title of the f
 
 ## License
 
-Project code is MIT licensed. Reused upstream code retains its MIT notice. Runtime and font dependencies retain their own licenses; see `THIRD_PARTY_NOTICES.md` and the shipped license files. The website does not bundle private saves or proprietary character artwork. The game favicon remains subject to its owner’s rights and is not relicensed.
+Project code is MIT licensed. Reused upstream code retains its MIT notice. Runtime and font dependencies retain their own licenses; see `THIRD_PARTY_NOTICES.md` and the shipped license files. The website does not bundle private saves or downloaded official character artwork. Its OG cover is generated community artwork; game-character rights remain with their respective owners. The game favicon remains subject to its owner’s rights and is not relicensed.

@@ -24,16 +24,20 @@ The game's identifiable character design takes priority over generic historical 
 
 Create a landscape social image at a 1.91:1 ratio, exported at 1200 × 630. Keep Lu Bu on the right, with both plumes within the crop, and reserve the left half for the product name. Use green-black armor shadows, antique-gold metal, crimson trim, and restrained purple details. Lighting should reveal the modeled armor and stern expression, consistent with the official Remastered reference; avoid ink-wash, anime, modern photorealistic cosplay, or unrelated later-series costumes.
 
-The image should communicate a community save tool, not a new game release. Add the following as typeset text after generating the artwork:
+The image should communicate a community save tool, not a new game release. The final generated cover contains the following reviewed text:
 
 - **DW3CER Save Patch**
 - **DYNASTY WARRIORS 3 · REMASTERED**
-- **Local save patch · Windows Steam**
+- **Local save processing · Windows Steam**
 
 Keep crucial text and the face away from the edges. At a small preview size, the product name must remain readable. Do not include unsupported claims such as “safe,” “official,” “unlimited power,” or “100% completion.” Do not reproduce the official logo or imply endorsement.
 
-## Draft generation prompt
+## Original artwork brief
 
 > Landscape character artwork for a community Dynasty Warriors 3: Complete Edition Remastered save-patcher social preview. Use the official Remastered Lu Bu portrait as the visual reference for costume and rendering. Lu Bu occupies the right half in a commanding three-quarter pose, stern expression, paired long curved helmet plumes, ornate gold beast shoulder armor, dark green arm guards, crimson armor trim, restrained purple waist fabric, and a long polearm. Detailed game-character rendering, substantial sculpted armor, warm metallic highlights against a green-black background. Quiet dark negative space across the left half for typography added afterward. Keep the face, both plumes, and weapon within the landscape crop. No lettering, logos, interface, modern clothing, extra characters, or unrelated franchise costumes.
 
-No OG artwork has been generated in this review. The HTML includes a title and description for sharing; add `og:image` and its dimensions only after the final image exists and its deployed URL has been checked. Treat the reference as visual guidance, not as a license to redistribute official artwork.
+## Generated asset
+
+The built-in image tool generated `public/ogimage.png` on October 11, 2026, using the official Digital Deluxe key art supplied by the user as a visual reference. The final cover is 1731 × 909 pixels with an opaque background. It uses the project title **DW3CER Save Patch**, the Remastered Lu Bu armor design, a green-black text area, and warm golden battlefield light. The reference's official logo and Digital Deluxe label are absent. “Unofficial community tool” remains visible.
+
+The image's text, character rendering, and landscape composition were visually checked. The exact executed prompt and provenance are in [ogimage-generation.json](ogimage-generation.json). The generated image is used for Open Graph and large-card sharing metadata only; the website's operating interface does not display character artwork. Game-character rights remain with their respective owners; this generated community artwork implies no affiliation or endorsement.

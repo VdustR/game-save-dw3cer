@@ -7,4 +7,4 @@
 
 - Game icon (favicon and header): the DW3CER Steam shortcut icon, used to identify the supported game. It remains the property of its respective rights holders and is not licensed under this project's MIT license. No affiliation or endorsement is implied.
 
-Development dependencies retain their package licenses. No private game saves are included in the website. The shared favicon/header icon is the only bundled proprietary game artwork.
+Development dependencies retain their package licenses. No private game saves are included in the website. The shared favicon/header icon is the only bundled official game artwork. The OG cover is AI-generated community artwork based on the user-supplied visual reference; game-character rights remain with their respective owners. See `docs/ogimage-generation.json` for its prompt and provenance.

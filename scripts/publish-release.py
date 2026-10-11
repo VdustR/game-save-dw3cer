@@ -15,6 +15,7 @@ NAMES = {
     'DW3CER_0_Percent_Original.zip',
     'DW3CER_100_Percent_Perfect.zip',
     'DW3CER_101_Percent_Overlimit.zip',
+    'DW3CER_102_Percent_All_Elements.zip',
 }
 
 
@@ -51,12 +52,12 @@ def main():
     if not args.tag or not re.fullmatch(r'steam-build-\d+', args.tag):
         raise ValueError('Use an approved Steam-build tag.')
     manifest = json.loads((ROOT / 'releases' / (args.tag + '.json')).read_text(encoding='utf8'))
-    if manifest['tag'] != args.tag or {row['name'] for row in manifest['assets']} != NAMES or len(manifest['assets']) != 3:
+    if manifest['tag'] != args.tag or {row['name'] for row in manifest['assets']} != NAMES or len(manifest['assets']) != len(NAMES):
         raise ValueError('Unexpected release manifest.')
     if args.verify_directory:
         for spec in manifest['assets']:
             verify_bundle(args.verify_directory / spec['name'], spec)
-        print('All three release bundles match their ZIP and save checksums.')
+        print('All four release bundles match their ZIP and save checksums.')
         return
     repo = os.environ['GH_REPO']
     if repo != 'VdustR/game-save-dw3cer':
@@ -93,8 +94,8 @@ def main():
                '--title', manifest['title'], '--notes-file', str(ROOT / 'releases' / (args.tag + '.md')), '--draft')
         gh('release', 'upload', args.tag, *paths, '--repo', repo, '--clobber')
         uploaded = api(f"repos/{repo}/releases/{release['id']}")
-        if {item['name'] for item in uploaded['assets']} != NAMES or len(uploaded['assets']) != 3:
-            raise ValueError('The draft does not contain exactly the three approved assets.')
+        if {item['name'] for item in uploaded['assets']} != NAMES or len(uploaded['assets']) != len(NAMES):
+            raise ValueError('The release does not contain exactly the four approved assets.')
         for spec in manifest['assets']:
             item = next(item for item in uploaded['assets'] if item['name'] == spec['name'])
             if item['size'] != spec['size'] or item['state'] != 'uploaded':

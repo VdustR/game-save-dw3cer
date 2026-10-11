@@ -8,13 +8,14 @@ A browser-local save patch for **Dynasty Warriors 3: Complete Edition Remastered
 
 [Download the published save packages and read the release notes](https://github.com/VdustR/game-save-dw3cer/releases/tag/steam-build-25630985) for Windows Steam build 25630985.
 
-| Package                                                                                                                                             | Contents                                            |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [0% Original](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_0_Percent_Original.zip)                      | Untouched new-game save. No stage or Musou clears.  |
-| [100% Perfect · Legal Max](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_100_Percent_Perfect.zip)        | All supported unlocks and supported maximum values. |
-| [101% Overlimit · Experimental](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_101_Percent_Overlimit.zip) | The same unlocks, with bonuses above normal limits. |
+| Package                                                                                                                                             | Contents                                                            |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [0% Original](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_0_Percent_Original.zip)                      | Untouched new-game save. No stage or Musou clears.                  |
+| [100% Perfect · Legal Max](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_100_Percent_Perfect.zip)        | All supported unlocks and supported maximum values.                 |
+| [101% Overlimit · Experimental](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_101_Percent_Overlimit.zip) | The same unlocks, with bonuses above normal limits.                 |
+| [102% All Elements](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_102_Percent_All_Elements.zip)          | Overlimit with all four weapon elements. Effects vary by situation. |
 
-These packages are for starting fresh. Use DW3CER Save Patch to modify your own save instead of installing a new-game package. The percentages are package labels, not completion meters. Four-element mixing is off. Each ZIP includes an installation guide and `SHA256SUMS.txt`.
+These packages are for starting fresh. Use DW3CER Save Patch to modify your own save instead of installing a new-game package. The percentages are package labels, not completion meters. Only 102% enables four-element mixing. Each ZIP includes an installation guide and `SHA256SUMS.txt`.
 
 Back up your current `SaveGames` folder before installing a package. See the [installation steps below](#save-location-backups-and-installation). Other game builds and editions have not been verified.
 

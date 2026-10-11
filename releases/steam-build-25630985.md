@@ -1,12 +1,13 @@
 ## Choose a save
 
-| ZIP                | Contents                                                          |
-| ------------------ | ----------------------------------------------------------------- |
-| **0% Original**    | Untouched new-game save. No stage or Musou clears.                |
-| **100% Perfect**   | Legal Max values and all supported unlocks. Start here.           |
-| **101% Overlimit** | The same unlocks, with bonuses above normal limits. Experimental. |
+| ZIP                   | Contents                                                            |
+| --------------------- | ------------------------------------------------------------------- |
+| **0% Original**       | Untouched new-game save. No stage or Musou clears.                  |
+| **100% Perfect**      | Legal Max values and all supported unlocks. Start here.             |
+| **101% Overlimit**    | The same unlocks, with bonuses above normal limits. Experimental.   |
+| **102% All Elements** | Overlimit with all four weapon elements. Effects vary by situation. |
 
-Both patched saves equip all 42 officers with their own fifth weapons and five items. All four bodyguard teams receive third-tier weapons and Healing Scroll. Four-element mixing is off.
+All patched saves equip all 42 officers with their own fifth weapons and five items. All four bodyguard teams receive third-tier weapons and Healing Scroll. Only 102% enables four-element mixing, including all 42 officers' fourth and fifth weapons and existing normal officer weapons. Effects vary by situation.
 
 The percentages are package labels, not completion meters. The original retains content naturally granted by the installed game. Permanent Musou values are preserved; Steam achievement data and challenge scores are not edited.
 
@@ -28,6 +29,7 @@ Keep this game's Steam Cloud sync off while testing. Check your progress and equ
 - **100% Perfect:** tested in-game by the project owner; no issues reported.
 - **Both patched files:** repeat application, mode switching, and live-site downloads match the native reference byte for byte.
 - **101% Overlimit:** uses the previously tested numeric profile. Tested in-game by the project owner on October 11, 2026; no issues reported. Displayed bonuses may exceed effective combat caps.
+- **102% All Elements:** differs from 101% only in officer weapon elements. Native and browser outputs match; repeat patches and all 42 fourth/fifth weapon pairs were verified.
 
 Each ZIP includes a short guide and `SHA256SUMS.txt`.
 

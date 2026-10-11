@@ -51,3 +51,7 @@ The same initial-save flow subsequently passed on the actual live GitHub Pages U
 ## Overlimit gameplay confirmation
 
 On October 11, 2026, the project owner tested the fresh 101% Overlimit candidate in-game and reported no issues. Both published preset files now have owner gameplay confirmation. This feedback does not establish uncapped combat effects. Four-element effects vary by situation. The save payloads are unchanged; release guide files were updated to record the result.
+
+## 102% All Elements release
+
+The 102% package is generated from the published original fixture with Overlimit and four-element mixing enabled. It differs from the published 101% save only in officer weapon element fields. All 42 fourth weapons and 42 fifth weapons, existing normal officer weapons, and officer gallery snapshots carry mask `0x3c`; non-element flags are preserved. Native roundtrip, repeat application, browser/native parity, ZIP contents, and SHA-256 checks passed. The existing 0%, 100%, and 101% ZIPs are unchanged. Four-element effects vary by situation.

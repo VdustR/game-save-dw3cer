@@ -26,7 +26,7 @@ A full dual-agent Impeccable critique command was not invoked. Visual judgments 
 
 ## Remaining gameplay verification
 
-The owner tested the initial-save Legal Max candidate in-game without reported issues and approved publication. The project owner also tested the initial-save Overlimit candidate on October 11, 2026, without reported issues. Optional four-element mixing has not been separately tested in-game. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
+The owner tested the initial-save Legal Max candidate in-game without reported issues and approved publication. The project owner also tested the initial-save Overlimit candidate on October 11, 2026, without reported issues. Four-element effects vary by situation. Wider save-layout coverage needs additional real private fixtures; the current canonical-output claim is tied to the tested fixture.
 
 ## Privacy
 
@@ -50,4 +50,4 @@ The same initial-save flow subsequently passed on the actual live GitHub Pages U
 
 ## Overlimit gameplay confirmation
 
-On October 11, 2026, the project owner tested the fresh 101% Overlimit candidate in-game and reported no issues. Both published preset files now have owner gameplay confirmation. This feedback does not establish uncapped combat effects or qualify optional four-element mixing. The save payloads are unchanged; release guide files were updated to record the result.
+On October 11, 2026, the project owner tested the fresh 101% Overlimit candidate in-game and reported no issues. Both published preset files now have owner gameplay confirmation. This feedback does not establish uncapped combat effects. Four-element effects vary by situation. The save payloads are unchanged; release guide files were updated to record the result.

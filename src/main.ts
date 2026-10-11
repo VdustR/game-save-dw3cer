@@ -1,5 +1,4 @@
 import "@fontsource/fraunces/latin-400.css";
-import "@fontsource/fraunces/latin-400-italic.css";
 import "@fontsource/source-sans-3/latin-400.css";
 import "@fontsource/source-sans-3/latin-600.css";
 import "./style.css";
@@ -33,6 +32,7 @@ function setStatus(message: string, kind: "idle" | "busy" | "success" | "error" 
   dot.dataset["state"] = kind;
   status.dataset["state"] = kind;
 }
+// A download must always match the current source and preset.
 function invalidate(): void {
   output = undefined;
   report = undefined;
@@ -89,9 +89,10 @@ function startWorker(): void {
         summary.hidden = false;
         element("team-count", HTMLElement).textContent = "42 / " + message.summary.teams;
         element("source-hash", HTMLElement).textContent = sourceHash;
-        setStatus("File verified. Choose a preset, then patch your save.", "success");
+        setStatus("Save structure validated. Choose a preset, then patch your save.", "success");
         return;
       }
+      // Hashing yields to the event loop; reject results superseded while it runs.
       const expectedId = pending;
       const digest = await crypto.subtle.digest("SHA-256", message.bytes);
       const actual = Array.from(new Uint8Array(digest), (byte) =>

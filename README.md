@@ -1,8 +1,22 @@
-# DW3CER Save Workshop
+# DW3CER Save Patch
 
-A browser-local save patcher for **Dynasty Warriors 3: Complete Edition Remastered** on Windows Steam. Choose a save, select **Legal Max** or **Experimental Overlimit**, and download a verified output, the original backup, and a report. Save contents stay in browser memory.
+A browser-local save patch for **Dynasty Warriors 3: Complete Edition Remastered** (真・三國無双２ with 猛将伝 Remastered) on Windows Steam. Choose a save, select **Legal Max** or **Experimental Overlimit**, and download a verified output, the original backup, and a report. Save contents stay in browser memory.
 
-[Open the Patcher](https://vdustr.github.io/game-save-dw3cer/)
+[Open DW3CER Save Patch](https://vdustr.github.io/game-save-dw3cer/)
+
+## Ready-made save releases
+
+[Download the published save packages and read the release notes](https://github.com/VdustR/game-save-dw3cer/releases/tag/steam-build-25630985) for Windows Steam build 25630985.
+
+| Package                                                                                                                                             | Contents                                            |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [0% Original](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_0_Percent_Original.zip)                      | Untouched new-game save. No stage or Musou clears.  |
+| [100% Perfect · Legal Max](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_100_Percent_Perfect.zip)        | All supported unlocks and supported maximum values. |
+| [101% Overlimit · Experimental](https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_101_Percent_Overlimit.zip) | The same unlocks, with bonuses above normal limits. |
+
+These packages are for starting fresh. Use DW3CER Save Patch to modify your own save instead of installing a new-game package. The percentages are package labels, not completion meters. Four-element mixing is off. Each ZIP includes an installation guide and `SHA256SUMS.txt`.
+
+Back up your current `SaveGames` folder before installing a package. See the [installation steps below](#save-location-backups-and-installation). Other game builds and editions have not been verified.
 
 ## Save location, backups, and installation
 
@@ -15,7 +29,7 @@ For the Windows Steam edition, open this folder in File Explorer:
 The file to patch is `GameStatusData.sav`. The browser cannot open the save folder automatically.
 
 1. Close the game. Copy the entire `SaveGames` folder to a separate location and keep that backup.
-2. Choose a copy of `GameStatusData.sav` in the Patcher. Select Legal Max or Experimental Overlimit, then patch and verify it.
+2. Choose a copy of `GameStatusData.sav` in DW3CER Save Patch. Select Legal Max or Experimental Overlimit, then patch and verify it.
 3. Download the patched save, original backup, and report. The tool never overwrites your local source file.
 4. With the game closed, rename the patched download to `GameStatusData.sav` and replace only that file in the live save folder. Preserve the other save files.
 5. Start the game and check your progress and equipment before saving again. If anything looks wrong, close the game and restore your backup.
@@ -39,7 +53,7 @@ Third-tier bodyguard weapons have five distinct definitions: Elder Sword, Cresce
 
 **Legal Max** normalizes inherited overlimit values, uses exact supported values and rank counts, standardizes each weapon to its native single element or Lightning, and uses Balanced bodyguard growth `[8, 7, 7, 3, 3, 3]` within the 25-point allocation budget.
 
-**Experimental Overlimit** uses the tested foot-combat numeric profile, +255 bodyguard weapon bonuses, and bodyguard growth `[11, 11, 11, 3, 3, 3]`. Without mixing, its element selection matches the canonical single-element rule. The optional four-element setting applies all four element bits to officer weapons, including fifth weapons. Other flags are preserved. Both presets normalize collection snapshots to their declared profile so switching modes does not depend on the previous mode.
+**Experimental Overlimit** uses the tested foot-combat numeric profile, +255 bodyguard weapon bonuses, and bodyguard growth `[11, 11, 11, 3, 3, 3]`. Without mixing, its element selection matches the canonical single-element rule. The optional four-element setting applies all four element bits to officer weapons, including fifth weapons. It has not been separately tested in-game. Displayed +255 values may exceed effective combat caps. Other flags are preserved. Both presets normalize collection snapshots to their declared profile so switching modes does not depend on the previous mode.
 
 Repeating the same preset produces byte-identical output. Switching to a target preset produces the same output as applying that target directly to the reference input. This guarantee covers the tested real private fixtures; broader inventory layouts still benefit from additional user fixtures.
 
@@ -60,13 +74,11 @@ Permanent health stays at 250. Permanent Musou is preserved. No paid DLC ownersh
 | Serialization versions                  | GVAS 3; UE4 522; UE5 1017                                          |
 | Acceptance date                         | October 10, 2026                                                   |
 
-Game load/display/resave evidence applies to the prior Overlimit candidate on this build. Native and browser transformation tests cover the prior modified reference and a new game-generated initial save with 50 officer records (42 playable officers) and four bodyguard teams. The initial save has zero stage and Musou clears and retains content naturally granted by the installed game. The project owner tested the initial-save Legal Max candidate in-game without reported issues. The project owner also tested the initial-save Overlimit candidate on October 11, 2026, without reported issues. Optional four-element mixing has not been separately tested in-game. Other Steam builds, demo saves, and console editions have not been verified. The save header does not reliably identify a Steam build, so the report's tested environment is a reference snapshot, not an inferred build for every uploaded file.
+Game load/display/resave evidence, including bodyguard resave preservation, applies to the prior Overlimit candidate on this build. Native and browser transformation tests cover the prior modified reference and a new game-generated initial save with 50 officer records (42 playable officers) and four bodyguard teams. The initial save has zero stage and Musou clears and retains content naturally granted by the installed game. The project owner tested the initial-save Legal Max candidate in-game without reported issues. The project owner also tested the initial-save Overlimit candidate on October 11, 2026, without reported issues. Optional four-element mixing has not been separately tested in-game. Other Steam builds, demo saves, and console editions have not been verified. The save header does not reliably identify a Steam build, so the report's tested environment is a reference snapshot, not an inferred build for every uploaded file.
 
 Acceptance focuses on this project's composition, mode switching, idempotence, browser migration, and UI lifecycle. Unmodified upstream features are recorded as dependencies and are not independently requalified.
 
 The native acceptance suite covers the three configurations (Legal, Overlimit, Overlimit with mixing), three repeat-patch checks, and six cross-configuration transitions. The exact WASM/JavaScript AES stack matches the native output. Actual browser file selection, patch generation, and downloads are checked against the same hashes. The initial-save Legal Max and Overlimit downloads, original-backup download, mode-switch invalidation, and report download were also checked in a real browser against the production build served locally at the GitHub Pages base path. The same initial-save flow also passed on the live GitHub Pages site in the built-in browser, with both patched downloads, original backup, and report verified against the native references. Private fixtures and fixture hashes are excluded from the published source and assets.
-
-The previous Overlimit candidate was tested in-game by the user, including bodyguard resave preservation. The initial-save Legal Max candidate has also passed the owner's in-game check. The initial-save Overlimit candidate passed the owner's in-game check on October 11, 2026. Optional four-element mixing has not been separately tested in-game. A displayed +255 value does not prove an uncapped combat effect.
 
 Input validation checks the supported container, class, serialization versions, structure, array boundaries, and equipment references. No known native authenticity signature is available, so this cannot authenticate a save's origin or detect every structurally plausible scalar error.
 
@@ -106,11 +118,11 @@ CI uses mise with the pinned Node.js and pnpm versions and a frozen dependency l
 
 ## Design and release gates
 
-The interface follows an editorial workbench direction documented in `PRODUCT.md` and `DESIGN.md`. Impeccable's product-context, craft-floor, technical-audit, and bounded-inspection principles informed the process. Accessibility, responsive behavior, processing/error states, source/output distinction, contrast, and privacy are explicit acceptance gates. This is not a claim that a full Impeccable critique command was run.
+The interface uses a game-menu direction inspired by this edition’s Lu Bu armor palette: dark green, antique gold, and crimson. The working controls remain native and readable. See [product constraints](PRODUCT.md), [design system](DESIGN.md), and the [Lu Bu and OG image brief](docs/visual-direction.md). Impeccable's product-context, craft-floor, technical-audit, and bounded-inspection principles informed the process. Accessibility, responsive behavior, processing/error states, source/output distinction, contrast, and privacy are explicit acceptance gates. This is not a claim that a full Impeccable critique command was run.
 
 Release requires passing strict type checks, Oxlint, Oxfmt, tests, production build, browser output comparison, stale-result invalidation, cancellation, malformed-file rejection, and responsive/keyboard checks. Four-element mixing must remain labeled experimental until independently tested in-game.
 
-All copy is standard American English except the original Chinese title of the first credit. No product release numbers are invented.
+All copy is standard American English except the original Chinese title of the first credit and the official Japanese game name. No product release numbers are invented.
 
 ## Credits
 
@@ -119,4 +131,4 @@ All copy is standard American English except the original Chinese title of the f
 
 ## License
 
-Project code is MIT licensed. Reused upstream code retains its MIT notice. Runtime and font dependencies retain their own licenses; see `THIRD_PARTY_NOTICES.md` and the shipped license files. The original save and game assets are not redistributed or relicensed.
+Project code is MIT licensed. Reused upstream code retains its MIT notice. Runtime and font dependencies retain their own licenses; see `THIRD_PARTY_NOTICES.md` and the shipped license files. The website does not bundle private saves or proprietary character artwork. The game favicon remains subject to its owner’s rights and is not relicensed.

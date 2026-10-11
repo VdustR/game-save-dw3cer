@@ -5,38 +5,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="Validate and patch your DW3 Remastered save locally, with Legal Max and Experimental Overlimit presets."
+      content="Patch your Dynasty Warriors 3: Complete Edition Remastered Windows Steam save in your browser. Choose Legal Max or Experimental Overlimit and download a new copy."
     />
-    <title>DW3CER Save Workshop</title>
+    <title>DW3CER Save Patch | Dynasty Warriors 3 Remastered</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DW3CER Save Patch | Dynasty Warriors 3 Remastered" />
+    <meta
+      property="og:description"
+      content="Unlock supported collections and equip your officers. Patch your Windows Steam save locally with Legal Max or Experimental Overlimit."
+    />
+    <meta name="theme-color" content="#121714" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
   </head>
   <body>
-    <a class="skip" href="#workbench">Skip to the patcher</a>
+    <a class="skip" href="#workbench">Skip to the save patch</a>
     <main>
       <header>
-        <a href="#" class="wordmark" aria-label="DW3CER Save Workshop home"
-          ><svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M5 25 25 5m-14 0 16 16M4 20l8 8M18 4l10 10" /></svg
-          >DW3 <span>Save Workshop</span></a
+        <a href="#" class="wordmark" aria-label="DW3CER Save Patch home"
+          ><img src="/favicon.ico" alt="" width="32" height="32" />DW3CER <span>Save Patch</span></a
         ><span class="privacy">Local files. Private processing.</span>
       </header>
-      <section class="intro">
-        <div>
-          <h1>Prepare your<br /><em>next campaign.</em></h1>
-          <p>
-            Unlock the collection. Equip your officers and bodyguards.<br />Choose a complete,
-            repeatable preset for your Remastered save.
-          </p>
-        </div>
-        <aside>
-          <span class="edition">DYNASTY WARRIORS 3</span>
-          <p>Complete Edition Remastered<br />Windows · Steam</p>
-          <a href="#verification">What is verified?</a>
-        </aside>
+      <section class="intro" aria-labelledby="intro-heading">
+        <h1 id="intro-heading">Prepare your save.</h1>
+        <p>
+          For <strong>Dynasty Warriors 3: Complete Edition Remastered</strong> on Windows Steam.
+        </p>
       </section>
-      <section id="workbench" aria-label="Save patcher" class="workbench">
+      <nav class="page-nav" aria-label="Page sections">
+        <a href="#workbench">Save patch</a><a href="#releases">Ready-made saves</a
+        ><a href="#save-guide">Installation guide</a><a href="#verification">Verification</a>
+      </nav>
+      <section id="workbench" aria-label="Save patch" class="workbench">
         <div class="source">
-          <h2>Start with your save</h2>
+          <h2><span class="step" aria-hidden="true">1</span> Choose your save</h2>
           <p>
             Choose <code>GameStatusData.sav</code>. Your file stays in this browser; the original is
             never overwritten.
@@ -69,34 +70,40 @@
           <button id="cancel" class="text-button" hidden>Cancel processing</button>
         </div>
         <div class="configuration">
-          <h2>Choose your preset</h2>
+          <h2><span class="step" aria-hidden="true">2</span> Choose your preset</h2>
           <fieldset id="preset-options" disabled>
             <legend class="sr-only">Patch preset</legend>
             <label class="preset"
               ><input type="radio" name="mode" value="legal" checked />
-              <div>
-                <h3>Legal Max</h3>
-                <p>Maximum supported values, legal bonus counts, and balanced bodyguard growth.</p>
-                <span>25-point bodyguard allocation</span>
-              </div></label
+              <span class="preset-copy">
+                <strong class="preset-name">Legal Max</strong>
+                <span class="preset-description"
+                  >Uses supported maximum values and bonus counts. Normalizes inherited overlimit
+                  values.</span
+                >
+                <span class="preset-detail">25-point bodyguard allocation</span>
+              </span></label
             >
             <label class="preset"
               ><input type="radio" name="mode" value="overlimit" />
-              <div>
-                <h3>Experimental Overlimit</h3>
-                <p>Foot-combat bonuses and +255 bodyguard weapon values, with expanded growth.</p>
-                <span>36-point bodyguard allocation</span>
-              </div></label
+              <span class="preset-copy">
+                <strong class="preset-name">Experimental Overlimit</strong>
+                <span class="preset-description"
+                  >Raises foot-combat bonuses and bodyguard weapon values beyond normal
+                  limits.</span
+                >
+                <span class="preset-detail">36-point bodyguard allocation</span>
+              </span></label
             >
             <label class="mix-option"
               ><input type="checkbox" id="mixed" disabled /><span
-                >Mix all four weapon elements<small
-                  >Overlimit only. This option needs additional gameplay testing.</small
+                >Combine all four weapon elements<small
+                  >Overlimit only. Not separately tested in-game.</small
                 ></span
               ></label
             >
           </fieldset>
-          <details class="included" open>
+          <details class="included">
             <summary>Included in both presets</summary>
             <ul>
               <li>All supported content and collections unlocked</li>
@@ -112,13 +119,13 @@
             </svg>
           </button>
           <p class="output-note">
-            Creates a new file, an original backup, and a verification report.
+            Download a new save, your original backup, and a verification report.
           </p>
         </div>
       </section>
       <section id="result" class="result" hidden aria-labelledby="result-heading">
         <div class="result-header">
-          <h2 id="result-heading">Your save is ready.</h2>
+          <h2 id="result-heading">Your patched save is ready.</h2>
           <span>Output validation passed</span>
         </div>
         <p id="result-description"></p>
@@ -134,8 +141,50 @@
           ><button id="report" class="text-button">Download report</button>
         </div>
       </section>
-      <section class="verification" aria-labelledby="save-guide-heading">
-        <h2 id="save-guide-heading">Keep your progress safe.</h2>
+      <section id="releases" class="verification" aria-labelledby="release-heading">
+        <h2 id="release-heading">Download a ready-made save.</h2>
+        <div>
+          <p>
+            Starting fresh? These Windows Steam save packages are for tested game build 25630985. To
+            modify your own save, use DW3CER Save Patch above instead.
+          </p>
+          <ul class="release-list">
+            <li>
+              <a
+                href="https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_0_Percent_Original.zip"
+                >0% Original</a
+              ><span>Untouched new-game save. No stage or Musou clears.</span>
+            </li>
+            <li>
+              <a
+                href="https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_100_Percent_Perfect.zip"
+                >100% Perfect · Legal Max</a
+              ><span>All supported unlocks, with supported maximum values.</span>
+            </li>
+            <li>
+              <a
+                href="https://github.com/VdustR/game-save-dw3cer/releases/download/steam-build-25630985/DW3CER_101_Percent_Overlimit.zip"
+                >101% Overlimit · Experimental</a
+              ><span>The same unlocks, with bonuses above normal limits.</span>
+            </li>
+          </ul>
+          <p>
+            The percentages are package labels, not completion meters. Four-element mixing is off.
+            Each ZIP includes a guide and SHA-256 checksums. Back up your current saves before
+            installing.
+          </p>
+          <p>
+            <a
+              href="https://github.com/VdustR/game-save-dw3cer/releases/tag/steam-build-25630985"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Release notes and installation details on GitHub</a
+            >
+          </p>
+        </div>
+      </section>
+      <section id="save-guide" class="verification" aria-labelledby="save-guide-heading">
+        <h2 id="save-guide-heading">Install your save safely.</h2>
         <div>
           <p><strong>Windows Steam save location.</strong> Open this folder in File Explorer:</p>
           <p><code>%LOCALAPPDATA%\KoeiTecmo\DW3CE_RE\Saved\SaveGames</code></p>
@@ -169,7 +218,7 @@
         </div>
       </section>
       <section id="verification" class="verification">
-        <h2>Clear about what we know.</h2>
+        <h2>Tested version &amp; limits.</h2>
         <div>
           <p>
             <strong>Tested game build.</strong> Windows Steam build 25630985 (App 3841510), Windows
@@ -187,14 +236,25 @@
             separately tested in-game. Displayed bonuses may exceed effective combat caps.
           </p>
           <p>
-            <strong>File validation.</strong> The patcher checks structure, version, and references.
-            This save format has no known authenticity signature; validation cannot prove a file’s
-            origin or detect every plausible scalar error.
+            <strong>File validation.</strong> DW3CER Save Patch checks structure, version, and
+            references. This save format has no known authenticity signature; validation cannot
+            prove a file’s origin or detect every plausible scalar error.
           </p>
         </div>
       </section>
       <footer>
-        <p>DW3CER Save Workshop · MIT licensed</p>
+        <div>
+          <p>DW3CER Save Patch · MIT licensed</p>
+          <a
+            href="https://github.com/VdustR/game-save-dw3cer"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Source code on GitHub</a
+          >
+          <a href="https://github.com/VdustR" target="_blank" rel="noopener noreferrer"
+            >Created by VdustR · GitHub</a
+          >
+        </div>
         <div>
           <h2>Credits</h2>
           <a

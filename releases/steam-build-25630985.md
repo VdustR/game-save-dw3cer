@@ -31,7 +31,7 @@ Keep this game's Steam Cloud sync off while testing. Check your progress and equ
 
 Each ZIP includes a short guide and `SHA256SUMS.txt`.
 
-[Open the Patcher](https://vdustr.github.io/game-save-dw3cer/)
+[Open DW3CER Save Patch](https://vdustr.github.io/game-save-dw3cer/)
 
 ## Credits
 

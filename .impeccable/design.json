@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T18:44:42.948213+00:00",
+  "title": "Design System: DW3CER Save Patch",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Green Black"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ivory"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Sage"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Frame Green"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Antique Gold"
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Dark Green Wash"
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Crimson"
+      },
+      "red-hover": {
+        "role": "primary",
+        "displayName": "Crimson Hover"
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success Sage"
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Error Coral"
+      },
+      "disabled": {
+        "role": "neutral",
+        "displayName": "Disabled Green"
+      },
+      "selected": {
+        "role": "neutral",
+        "displayName": "Selected Green"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Introductory heading; responsive reductions are recorded in Layout."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Workspace headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Instructions and readable status."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Action labels."
+      },
+      "preset-title": {
+        "displayName": "Preset Title",
+        "purpose": "Names of native radio choices."
+      },
+      "hash": {
+        "displayName": "Hash",
+        "purpose": "Wrapped verification hashes."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "button-transition",
+        "value": "background 0.18s, color 0.18s",
+        "purpose": "Button state changes; removed for reduced motion."
+      },
+      {
+        "name": "status-pulse",
+        "value": "pulse 1.5s ease-in-out infinite",
+        "purpose": "Busy status; opacity reaches 0.35 at 50%; removed for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Patch Button",
+      "kind": "button",
+      "description": "Crimson action for patching or downloading patched output.",
+      "html": "<button class=\"ds-button ds-primary\">Patch and verify save</button>",
+      "css": ".ds-button{min-height:48px;padding:12px 20px;border:1px solid var(--accent,#e0bd77);border-radius:2px;font:600 16px \"Source Sans 3\",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:12px;transition:background .18s,color .18s}.ds-button:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-button:disabled{background:#353d31;border-color:var(--rule,#465044);color:var(--muted,#b5b9a7);cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-primary{background:var(--red,#8e302e);border-color:#b75a46;color:var(--ink,#eee8d7)}.ds-primary:hover{background:var(--red-hover,#ab3d36)}.ds-primary:active{background:#702724}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "File Button",
+      "kind": "button",
+      "description": "Gold file-selection control.",
+      "html": "<button class=\"ds-button ds-file\">Choose save file</button>",
+      "css": ".ds-button{min-height:48px;padding:12px 20px;border:1px solid var(--accent,#e0bd77);border-radius:2px;font:600 16px \"Source Sans 3\",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:12px;transition:background .18s,color .18s}.ds-button:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-button:disabled{background:#353d31;border-color:var(--rule,#465044);color:var(--muted,#b5b9a7);cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-file{background:var(--accent,#e0bd77);color:var(--paper,#121714)}.ds-file:hover{background:#f0d49b}.ds-file:active{background:#c6a061}",
+      "refersTo": "button-file"
+    },
+    {
+      "name": "Backup Button",
+      "kind": "button",
+      "description": "Secondary action for retrieving the original file.",
+      "html": "<button class=\"ds-button ds-secondary\">Download original backup</button>",
+      "css": ".ds-button{min-height:48px;padding:12px 20px;border:1px solid var(--accent,#e0bd77);border-radius:2px;font:600 16px \"Source Sans 3\",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:12px;transition:background .18s,color .18s}.ds-button:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-button:disabled{background:#353d31;border-color:var(--rule,#465044);color:var(--muted,#b5b9a7);cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-secondary{background:transparent;color:var(--ink,#eee8d7);border-color:var(--rule,#465044)}.ds-secondary:hover{background:var(--wash,#1c2620)}.ds-secondary:active{background:#c6a061}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Preset Row",
+      "kind": "input",
+      "description": "Native radio with explanation and allocation detail.",
+      "html": "<label class=\"ds-preset\"><input type=\"radio\" name=\"ds-preset\" checked><span><strong class=\"ds-preset-name\">Legal Max</strong><span class=\"ds-preset-description\">Uses supported maximum values and bonus counts.</span><span class=\"ds-preset-detail\">25-point bodyguard allocation</span></span></label>",
+      "css": ".ds-preset{display:flex;gap:13px;cursor:pointer;padding:17px 16px;border:1px solid var(--rule,#465044);margin-bottom:12px;border-radius:2px;font-family:\"Source Sans 3\",sans-serif}.ds-preset:hover{background:var(--wash,#1c2620)}.ds-preset:has(input:checked){background:#293324;border-color:var(--accent,#e0bd77)}.ds-preset input{width:18px;height:18px;margin:5px 0 0;flex:0 0 18px;accent-color:var(--accent,#e0bd77)}.ds-preset input:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-preset-name{display:block;font-weight:600;font-size:20px;color:var(--ink,#eee8d7)}.ds-preset-description{display:block;font-size:15px;margin:6px 0;color:var(--muted,#b5b9a7)}.ds-preset-detail{display:block;font-size:13px;color:var(--accent,#e0bd77)}",
+      "refersTo": "preset"
+    },
+    {
+      "name": "File Selection Well",
+      "kind": "custom",
+      "description": "Dashed file-selection frame with a native input and visible label.",
+      "html": "<div class=\"ds-file-area\"><label for=\"ds-save-file\" class=\"ds-button ds-file-label\">Choose save file</label><input id=\"ds-save-file\" type=\"file\" accept=\".sav\"><p>A .sav file, up to 16 MB</p></div>",
+      "css": ".ds-button{min-height:48px;padding:12px 20px;border:1px solid var(--accent,#e0bd77);border-radius:2px;font:600 16px \"Source Sans 3\",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:12px;transition:background .18s,color .18s}.ds-button:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-button:disabled{background:#353d31;border-color:var(--rule,#465044);color:var(--muted,#b5b9a7);cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-file-area{margin:25px 0 22px;background:var(--wash,#1c2620);border:1px dashed #78856b;min-height:198px;text-align:center;padding:26px 16px;font-family:\"Source Sans 3\",sans-serif}.ds-file-label{background:var(--accent,#e0bd77);color:var(--paper,#121714)}.ds-file-label:hover{background:#f0d49b}#ds-save-file{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}.ds-file-area:focus-within .ds-file-label{outline:2px solid var(--accent,#e0bd77);outline-offset:5px}.ds-file-area p{margin:14px 0 0;font-size:14px;color:var(--muted,#b5b9a7);overflow-wrap:anywhere}@media(max-width:760px){.ds-file-area{min-height:0;padding:18px 16px}}"
+    },
+    {
+      "name": "Page Navigation",
+      "kind": "nav",
+      "description": "Section links between fine horizontal rules.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Page sections\"><a href=\"#workbench\">Save patch</a><a href=\"#save-guide\">Installation guide</a><a href=\"#verification\">Verification</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:28px;border-top:1px solid var(--rule,#465044);border-bottom:1px solid var(--rule,#465044);font-family:\"Source Sans 3\",sans-serif}.ds-nav a{min-height:48px;display:inline-flex;align-items:center;color:var(--ink,#eee8d7);font-size:15px;text-decoration:none}.ds-nav a:hover{color:var(--accent,#e0bd77)}.ds-nav a:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}@media(max-width:760px){.ds-nav{gap:18px;flex-wrap:wrap}.ds-nav a{font-size:14px}}"
+    },
+    {
+      "name": "Output Result",
+      "kind": "card",
+      "description": "Flat results panel with a success rule and wrapped output hash.",
+      "html": "<section class=\"ds-result\"><div class=\"ds-result-header\"><h2>Your patched save is ready.</h2><span>Output validation passed</span></div><p>Download a new save and keep your original backup.</p></section>",
+      "css": ".ds-result{border-top:2px solid var(--success,#a9c99b);background:var(--wash,#1c2620);padding:28px;margin:32px 0;font-family:\"Source Sans 3\",sans-serif}.ds-result-header{display:flex;align-items:center;justify-content:space-between;gap:15px}.ds-result h2{font:400 27px/1.25 var(--display,Fraunces,Georgia,serif);color:var(--ink,#eee8d7);margin:0}.ds-result-header span{font-size:14px;color:var(--success,#a9c99b)}.ds-result p{font-size:16px;line-height:1.6;color:var(--muted,#b5b9a7)}@media(max-width:760px){.ds-result{padding:22px}.ds-result-header{align-items:flex-start;flex-direction:column}}",
+      "refersTo": "result"
+    },
+    {
+      "name": "Included Changes Disclosure",
+      "kind": "custom",
+      "description": "Native details control, closed by default, for changes shared by both presets.",
+      "html": "<details class=\"ds-included\"><summary>Included in both presets</summary><ul><li>All supported content and collections unlocked</li><li>All 42 officers equipped with their own fifth weapons</li></ul></details>",
+      "css": ".ds-included{border-top:1px solid var(--rule,#465044);padding-top:8px;font-family:\"Source Sans 3\",sans-serif}.ds-included summary{cursor:pointer;font-size:16px;font-weight:600;min-height:44px;padding:10px 0;color:var(--ink,#eee8d7)}.ds-included summary:focus-visible{outline:2px solid var(--accent,#e0bd77);outline-offset:4px}.ds-included ul{font-size:15px;line-height:1.7;padding-left:18px;color:var(--muted,#b5b9a7);margin:4px 0 20px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Campaign Workbench",
+    "overview": "A simple community save tool uses limited game-menu cues: green-black surfaces, antique gold, ivory text, crimson actions, and fine rectangular frames. The palette draws on the official DW3 Remastered Lu Bu reference described in [the visual direction](docs/visual-direction.md). Character artwork belongs only in the OG image, not the operating interface.\n\nThe continuous workspace supports choosing a local file, selecting a preset, and downloading a patched copy. Serif headings provide restrained game identity while readable sans-serif controls, persistent status, and a results ledger keep operation clear. Installation guidance and verification limits remain part of the interface.",
+    "keyCharacteristics": [
+      "Dark tonal surfaces and fine rectangular frames.",
+      "Gold file selection and navigation; crimson patch and download actions.",
+      "Serif identity paired with compact, readable native controls.",
+      "Visible processing states, experimental labels, and verification limits."
+    ],
+    "rules": [
+      {
+        "name": "The Action Color Rule",
+        "body": "Gold identifies file selection and navigation; crimson identifies patching and patched-output download. Keep these roles consistent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Control Rule",
+        "body": "Keep controls in Source Sans 3; reserve Fraunces for headings and game identity. Use tabular numbers for the file ledger.",
+        "section": "typography"
+      },
+      {
+        "name": "The Framed Surface Rule",
+        "body": "Use a border or tonal surface to group related content; preserve the flat menu structure.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the gold file-selection and crimson output-action roles.",
+      "Do use fine frames and tonal surfaces to organize the continuous workspace.",
+      "Do keep native controls, visible focus, readable state text, and reduced-motion behavior.",
+      "Do preserve the short introduction and compact mobile file-selection well.",
+      "Do state experimental and verification limits beside the affected behavior."
+    ],
+    "donts": [
+      "Don't restore the former warm-paper editorial palette as the default world.",
+      "Don't add shadows, rounded floating cards, or character artwork to the website UI. Character artwork is reserved for the OG image.",
+      "Don't imply official endorsement, guaranteed compatibility, or unverified gameplay benefits.",
+      "Don't document unavailable artwork, generated compositions, or formal gate success as implemented assets."
+    ]
+  }
+}
